@@ -17,22 +17,34 @@
     <header></header>
     <main>
       <section>
-        <div class="left-side">
-          <div class="boxes">
-            <div class="box-1"></div>
-            <div class="box-2"></div>
+        <div class="col">
+          <div class="row">
+            <div id="left-side">
+              <div class="boxes">
+                <div class="box" id="box-1"></div>
+                <div class="box" id="box-2"></div>
+                <div class="box" id="box-3"></div>
+              </div>
+              <div class="moveButton">
+                <button class="button move-right">Move Right</button>
+              </div>
+            </div>
+            <div id="right-side">
+              <div class="boxes">
+                <div class="box" id="box-4"></div>
+                <div class="box" id="box-5"></div>
+                <div class="box" id="box-6"></div>
+              </div>
+              <div class="moveButton">
+                <button class="button" id="move-left">Move Left</button>
+              </div>
+            </div>
           </div>
-          <div class="moveButton">
-            <div class="box-1"></div>
-            <div class="box-2"></div>
-          </div>
-        </div>
-        <div class="right-side">
-          <div class="boxes"></div>
-          <div class="moveButton"></div>
+          <div class="alert">Hello</div>
         </div>
       </section>
     </main>
     <footer></footer>
+    <script src="./src/js/main.js" type="module"></script>
   </body>
 </html>

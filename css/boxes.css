@@ -1,1 +1,81 @@
-/*# sourceMappingURL=boxes.css.map */
+.col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  gap: 25px;
+}
+
+#left-side {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 520px;
+  height: 520px;
+  gap: 25px;
+}
+
+#right-side {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 520px;
+  height: 520px;
+  gap: 25px;
+}
+
+.boxes {
+  width: 100%;
+  height: 100%;
+  border: solid 3px black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.box {
+  width: 180px;
+  height: 180px;
+  border-style: solid;
+  border-width: 3px;
+}
+
+#box-1 {
+  border-color: red;
+}
+
+#box-2 {
+  border-color: green;
+}
+
+#box-3 {
+  border-color: brown;
+}
+
+#box-4 {
+  border-color: steelblue;
+}
+
+#box-5 {
+  border-color: orchid;
+}
+
+#box-6 {
+  border-color: orangered;
+}
+
+.alert {
+  margin: 12px;
+  padding: 12px;
+  color: red;
+}/*# sourceMappingURL=boxes.css.map */
