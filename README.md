@@ -6,7 +6,7 @@ This project is a simple repo that involves moving boxes between two containers.
 
 ## Demo
 
-You can view a live demo of the repo form on GitHub Pages: [Live Demo]([https://diaahsharqawi.github.io/Login-Form-Input-Validation-Task/](https://diaahsharqawi.github.io/Moving-boxes/))
+You can view a live demo of the login form on GitHub Pages: [[Live Demo](https://diaahsharqawi.github.io/Moving-boxes/)]
 
 ## Features
 
