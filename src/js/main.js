@@ -45,12 +45,14 @@ function handelMoveBoxButton(side) {
   appendBoxToSide(oppositeSideBoxElements, idAttributeOfBoxToMove);
 }
 
-moveLeftButton.click(() => {
-  console.log(`clicked`);
-  handelMoveBoxButton("right-side");
-});
+$("document").ready(function () {
+  moveLeftButton.click(() => {
+    console.log(`clicked`);
+    handelMoveBoxButton("right-side");
+  });
 
-moveRightButton.click(() => {
-  console.log(`right cliked`);
-  handelMoveBoxButton("left-side");
+  moveRightButton.click(() => {
+    console.log(`right cliked`);
+    handelMoveBoxButton("left-side");
+  });
 });
