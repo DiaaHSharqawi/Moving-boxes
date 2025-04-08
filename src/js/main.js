@@ -1,43 +1,56 @@
-const leftSideBoxes = $("#left-side .boxes");
+import {
+  getBoxesIdsFromSide,
+  getOppositeSide,
+  getRandomNumberFromArray,
+} from "./utils/moveBoxesUtils.js";
 
 const moveLeftButton = $("#move-left");
 const moveRightButton = $("#move-right");
-
 const alert = $(".alert");
 
-function getRandomNumberFromArray(array) {
-  console.log(...array);
-  const randomIndex = Math.floor(Math.random() * array.length);
-  return array[randomIndex];
+function getRandomIdOfBoxToMove(boxesInTheSide) {
+  const boxesIdsSide = getBoxesIdsFromSide(boxesInTheSide);
+  const randomIdOfBoxToMove = getRandomNumberFromArray(boxesIdsSide);
+  const idAttributeOfBoxToMove = `box-${randomIdOfBoxToMove}`;
+  return idAttributeOfBoxToMove;
 }
 
-const handelMoveButtonLeft = () => {
-  const rightSideBoxElements = $("#right-side .boxes .box");
-  const rightSideBoxElementsArray = Array.from(rightSideBoxElements);
+function removeBoxFromSide(boxesInTheSide, idAttributeOfBoxToMove) {
+  boxesInTheSide.remove(`#${idAttributeOfBoxToMove}`);
+}
 
-  const hasAnyBoxToMove = rightSideBoxElementsArray.length > 0;
+function appendBoxToSide(boxesInOppositeTheSide, idAttributeOfBoxToMove) {
+  const box = $(`<div>`, {
+    id: idAttributeOfBoxToMove,
+    class: `box`,
+  });
+  boxesInOppositeTheSide.append(box);
+}
+
+function handelMoveBoxButton(side) {
+  const OPPOSITE_SIDE = getOppositeSide(side);
+  const boxesInTheSide = $(`#${side} .boxes .box`);
+  const hasAnyBoxToMove = boxesInTheSide.length > 0;
   if (!hasAnyBoxToMove) {
     alert.html(`<span> There is no more boxes to move ❌</span>`);
     return;
+  } else {
+    alert.html(``);
   }
+  const idAttributeOfBoxToMove = getRandomIdOfBoxToMove(
+    Array.from(boxesInTheSide)
+  );
+  removeBoxFromSide(boxesInTheSide, idAttributeOfBoxToMove);
+  const oppositeSideBoxElements = $(`#${OPPOSITE_SIDE} .boxes`);
+  appendBoxToSide(oppositeSideBoxElements, idAttributeOfBoxToMove);
+}
 
-  console.log(rightSideBoxElementsArray);
+moveLeftButton.click(() => {
+  console.log(`clicked`);
+  handelMoveBoxButton("right-side");
+});
 
-  const boxesRightSideIndexes = rightSideBoxElementsArray.map((element) => {
-    const boxIdName = element.id;
-    const boxIdNumber = Number(boxIdName.split("-")[1]);
-    return boxIdNumber;
-  });
-  const boxIndexToMove = getRandomNumberFromArray(boxesRightSideIndexes);
-  console.log(`box index to move : ${boxIndexToMove}`);
-  const boxIdToMove = `#box-${boxIndexToMove}`;
-  console.log(`box id to move ${boxIdToMove}`);
-  rightSideBoxElements.remove(boxIdToMove);
-  const leftSideBoxElements = $("#left-side .boxes");
-  const box = $(`<div>`, {
-    id: `box-${boxIndexToMove}`,
-    class: `box`,
-  });
-  leftSideBoxElements.append(box);
-};
-moveLeftButton.click(handelMoveButtonLeft);
+moveRightButton.click(() => {
+  console.log(`right cliked`);
+  handelMoveBoxButton("left-side");
+});
